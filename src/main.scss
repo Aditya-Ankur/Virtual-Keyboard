@@ -1,0 +1,255 @@
+$primaryLight: #7379d6;
+$primaryDark: #40dd31;
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@mixin backgroundHover($light) {
+  @if $light {
+    border: 2px solid rgba(0, 0, 0, 0.39);
+    &:hover {
+      background-color: $primaryLight;
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 40px 10px #7379d6ab;
+      color: white;
+    }
+  } @else {
+    border: 2px solid grey;
+    &:hover {
+      background-color: $primaryDark;
+      box-shadow: 0px 0px 40px 10px $primaryDark;
+      transform: translateY(-5px);
+      color: black;
+    }
+  }
+}
+
+@mixin cursor($light) {
+  @if $light {
+    &::after {
+      content: "|";
+      color: $primaryLight;
+      font-weight: bold;
+      animation-name: blink;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      animation-duration: 0.5s;
+    }
+  } @else {
+    &::after {
+      content: "|";
+      color: $primaryDark;
+      font-weight: bold;
+      animation-name: blink;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      animation-duration: 0.5s;
+    }
+  }
+}
+
+* {
+  font-family: "Consolas", monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.typewriter {
+  display: flex;
+  font-size: 3vw;
+  margin-top: 30vh;
+  font-weight: bold;
+}
+
+.dark-mode-page-btn {
+  font-size: 1vw;
+  font-weight: bold;
+  padding: 10px 12px;
+  margin-left: 5vw;
+  background-color: black;
+  color: white;
+  border: transparent;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-10px);
+  }
+}
+
+.light-mode-page-btn {
+  font-size: 1vw;
+  font-weight: bold;
+  padding: 10px 12px;
+  background-color: white;
+  border: transparent;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primaryLight;
+    color: white;
+    transform: translateY(-10px);
+  }
+}
+
+.text {
+  margin-top: 10vh;
+  font-size: 2.5vw;
+}
+
+.text-dark {
+  overflow-wrap: break-word;
+  @include cursor(false);
+}
+
+.text-light {
+  overflow-wrap: break-word;
+  @include cursor(true);
+}
+
+.btn-dark {
+  width: 100vw;
+  button {
+    background-color: white;
+    color: black;
+    border: transparent;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background: $primaryDark;
+      font-size: 33px;
+      padding: 20px 24px;
+      box-shadow: 0px 0px 50px 15px $primaryDark;
+    }
+  }
+  #dark-to-home {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 10px 11px;
+
+    &:hover {
+      padding: 20px 23px;
+    }
+  }
+
+  #to-light {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px 12px;
+
+    &:hover {
+      padding: 20px 24px;
+    }
+  }
+  #sound-state {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 11px;
+
+    &:hover {
+      padding: 20px 24px;
+    }
+  }
+}
+
+.btn-light {
+  button {
+    background-color: $primaryLight;
+    color: white;
+    border: transparent;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background: $primaryLight;
+      font-size: 33px;
+      padding: 20px 24px;
+      box-shadow: 0px 0px 40px 10px $primaryLight;
+    }
+  }
+  #light-to-home {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    padding: 10px 11px;
+
+    &:hover {
+      padding: 20px 23px;
+    }
+  }
+
+  #to-dark {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 12px;
+
+    &:hover {
+      padding: 20px 24px;
+    }
+  }
+
+  #sound-state {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 11px;
+
+    &:hover {
+      padding: 20px 24px;
+    }
+  }
+}
+
+.keyboard-dark {
+  tr {
+    td {
+      font-size: 2vw;
+      width: 5.2vw;
+      padding: 20px 0;
+      transition: 0.3s ease;
+      cursor: pointer;
+      @include backgroundHover(false);
+    }
+  }
+}
+
+.keyboard-light {
+  tr {
+    td {
+      font-size: 2vw;
+      width: 5.2vw;
+      padding: 20px 0;
+      transition: 0.3s ease;
+      cursor: pointer;
+      @include backgroundHover(true);
+    }
+  }
+}
+
+pre {
+  display: inline;
+}
