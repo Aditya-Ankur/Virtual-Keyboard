@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Virtual-Keyboard/static/css/main.e646b1db.chunk.css",
+    "main.js": "/Virtual-Keyboard/static/js/main.ea073bac.chunk.js",
+    "main.js.map": "/Virtual-Keyboard/static/js/main.ea073bac.chunk.js.map",
+    "runtime-main.js": "/Virtual-Keyboard/static/js/runtime-main.5fa54c7d.js",
+    "runtime-main.js.map": "/Virtual-Keyboard/static/js/runtime-main.5fa54c7d.js.map",
+    "static/js/2.8d70d646.chunk.js": "/Virtual-Keyboard/static/js/2.8d70d646.chunk.js",
+    "static/js/2.8d70d646.chunk.js.map": "/Virtual-Keyboard/static/js/2.8d70d646.chunk.js.map",
+    "index.html": "/Virtual-Keyboard/index.html",
+    "static/css/main.e646b1db.chunk.css.map": "/Virtual-Keyboard/static/css/main.e646b1db.chunk.css.map",
+    "static/js/2.8d70d646.chunk.js.LICENSE.txt": "/Virtual-Keyboard/static/js/2.8d70d646.chunk.js.LICENSE.txt",
+    "static/media/keypress.613fadde.mp3": "/Virtual-Keyboard/static/media/keypress.613fadde.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5fa54c7d.js",
+    "static/js/2.8d70d646.chunk.js",
+    "static/css/main.e646b1db.chunk.css",
+    "static/js/main.ea073bac.chunk.js"
+  ]
+}
