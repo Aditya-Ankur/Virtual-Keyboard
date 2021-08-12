@@ -29,7 +29,7 @@ function Header() {
   return (
     <>
       <LoadingBar
-        color="#e61b1b"
+        color="#7379d6"
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
         shadow={false}
@@ -111,7 +111,18 @@ function Content() {
 
   const backspace = () => {
     audioState(audio);
-    setText(text.slice(0, text.length - 1));
+    if (ctrl) {
+      let index;
+      for (let i = text.length - 1; i >= 0; i--) {
+        if (text[i] == " ") {
+          index = i + 1;
+          break;
+        }
+      }
+      setText(text.slice(0, index));
+    } else {
+      setText(text.slice(0, text.length - 1));
+    }
   };
 
   const shiftKey = () => {

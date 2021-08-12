@@ -29,7 +29,7 @@ function Header() {
   return (
     <>
       <LoadingBar
-        color="#e61b1b"
+        color="#40dd31"
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
         shadow={false}
@@ -118,7 +118,18 @@ function Content() {
 
   const backspace = () => {
     audioState(audio);
-    setText(text.slice(0, text.length - 1));
+    if (ctrl) {
+      let index;
+      for (let i = text.length - 1; i >= 0; i--) {
+        if (text[i] == " ") {
+          index = i + 1;
+          break;
+        }
+      }
+      setText(text.slice(0, index));
+    } else {
+      setText(text.slice(0, text.length - 1));
+    }
   };
 
   const shiftKey = () => {
@@ -235,15 +246,6 @@ function Content() {
               onClick={() => {
                 audioState(audio);
                 setText("");
-                Swal.fire({
-                  toast: true,
-                  title: "Pasted Successfully",
-                  icon: "success",
-                  timer: 1500,
-                  timerProgressBar: true,
-                  showConfirmButton: false,
-                  position: "top-right",
-                });
               }}
             >
               Clear All
